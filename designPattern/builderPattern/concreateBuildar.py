@@ -1,5 +1,6 @@
 import abc
 
+
 class AbstructBuilder(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def build_title(self, title):
@@ -34,6 +35,7 @@ class HTMLBuilder(AbstructBuilder):
 
     def build_footer(self, footer):
         return "<footer><p>{}</p></footer>\n".format(footer)
+
 
 class TextBuilder(AbstructBuilder):
 

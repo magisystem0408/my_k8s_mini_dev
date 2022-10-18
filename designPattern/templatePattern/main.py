@@ -1,3 +1,4 @@
+import abc
 import sys
 import models
 
@@ -7,16 +8,19 @@ Template Methodsのパターン
 """
 
 
-class TestFrame(object):
+class TestFrame(metaclass=abc.ABCMeta):
     def __init__(self):
         self.counter = 0
 
+    @abc.abstractmethod
     def setup(self):
         pass
 
+    @abc.abstractmethod
     def main(self):
         pass
 
+    @abc.abstractmethod
     def teardown(self):
         pass
 
