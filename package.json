@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "commit": "cz-customizable"
+  },
+  "dependencies": {
+    "cz-customizable": "^7.0.0"
+  }
+}
