@@ -1,0 +1,31 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: foos.example.com #複数形+groupの名前
+spec:
+  group: example.com
+  names:
+    kind: Foo
+    plural: foos
+  scope: Namespaced  #cluster か namespace
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      additionalPrinterColumns:
+        - jsonPath: .testString
+          name: Test String
+          type: string
+        - jsonPath: .testNum
+          name: Test Num
+          type: integer
+#新しいフィールドを追加するには、schemaに定義してあげる。
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            testString:
+              type: string
+            testNum:
+              type: integer
+
